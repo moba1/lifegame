@@ -11,8 +11,8 @@
 #include <string>
 
 namespace life {
-const auto WHITE = std::string("■");
-const auto BLACK = std::string("□");
+const auto WHITE = std::string(u8"■");
+const auto BLACK = std::string(u8"□");
 }
 
 #endif
