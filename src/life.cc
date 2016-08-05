@@ -93,8 +93,7 @@ auto main(int argc, char* argv[]) -> int {
   }
 
   setlocale(LC_ALL, "");
-  initscr();
-  timeout(0);
+  initscr(), timeout(0);
 
   // ライフゲームのメインルーチン
   life::cell_set cells(height, width);
@@ -104,7 +103,7 @@ auto main(int argc, char* argv[]) -> int {
       auto statuses = cells.get_cells_status();
 
       clear();
-      for (auto status : statuses) printw(status.c_str()), printw("\n");
+      for (auto status : statuses) printw("%s\n, "status.c_str());
       refresh();
       std::this_thread::sleep_for(std::chrono::microseconds(100000));
       cells.shift_next_generation();
