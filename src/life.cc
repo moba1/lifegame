@@ -103,7 +103,7 @@ auto main(int argc, char* argv[]) -> int {
       auto statuses = cells.get_cells_status();
 
       clear();
-      for (auto status : statuses) printw("%s\n, "status.c_str());
+      for (auto status : statuses) printw("%s\n", status.c_str());
       refresh();
       std::this_thread::sleep_for(std::chrono::microseconds(100000));
       cells.shift_next_generation();
