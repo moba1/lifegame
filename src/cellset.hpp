@@ -23,7 +23,7 @@ class cell_set {
   size_t height, width;
 
  public:
-  cell_set(size_t height, size_t width);
+  cell_set(size_t height, size_t width, size_t probability);
   auto get_cells_status() -> std::vector<std::string>;
   auto shift_next_generation() -> void;
 };

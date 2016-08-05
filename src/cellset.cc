@@ -18,10 +18,11 @@
  * @brief セル集合体オブジェクトのコンストラクタ。初期の高さと幅を要求する
  * @param (height) 初期設定したい高さ
  * @param (width) 初期設定したい幅
+ * @param (probability) セルが生存できる確率
  * @detail
  * セル集合体のオブジェクトの初期の高さと幅をユーザーから要求し、その幅と高さにセルの集合体の大きさを設定する。またこの時点でセルの各状態も初期化しておく
  */
-life::cell_set::cell_set(size_t height, size_t width)
+life::cell_set::cell_set(size_t height, size_t width, size_t probability)
     : height(height), width(width) {
   std::random_device rd;
   std::mt19937_64 mt(rd());
@@ -31,7 +32,7 @@ life::cell_set::cell_set(size_t height, size_t width)
   for (size_t i = 0; i < height; i++) {
     for (size_t j = 0; j < width; j++) {
       // セルを1/2の確率で生きた状態で初期化する
-      random_cell_status_generator(mt) > 50
+      random_cell_status_generator(mt) > probability
           ? cells[i].push_back(life::cell(std::pair<size_t, size_t>(i, j)))
           : cells[i].push_back(life::cell(std::pair<size_t, size_t>(i, j),
                                           life::STATUS::LIVE));
