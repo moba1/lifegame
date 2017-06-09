@@ -4,7 +4,7 @@ project(life)
 add_executable(life life.cc cell.cc cellset.cc)
 set(CMAKE_BUILD_TYPE Release)
 
-target_link_libraries(life ncurses)
+target_link_libraries(life ncursesw)
 
 set(CMAKE_CXX_FLAGS_DEBUG "-g")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2")

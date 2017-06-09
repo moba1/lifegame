@@ -2,5 +2,5 @@
 C++ライフゲーム
 
 # 必要なもの
-ncurses
+libncursesw
 
