@@ -26,7 +26,7 @@ life::cell_set::cell_set(size_t height, size_t width, size_t probability)
     : height(height), width(width) {
   std::random_device rd;
   std::mt19937_64 mt(rd());
-  std::uniform_int_distribution<int> random_cell_status_generator(1, 100);
+  std::uniform_int_distribution<size_t> random_cell_status_generator(1, 100);
   cells.resize(static_cast<size_t>(height));
 
   for (size_t i = 0; i < height; i++) {
