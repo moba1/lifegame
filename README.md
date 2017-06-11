@@ -2,10 +2,10 @@
 C++ライフゲーム
 
 # 必要なもの
-libncursesw
-libncurses
-CMake
-g++
+* libncursesw
+* libncurses
+* CMake
+* g++
 
 # 使い方
 ビルドしてできた実行ファイルを実行するだけ
