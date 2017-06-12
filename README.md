@@ -2,10 +2,11 @@
 C++ライフゲーム
 
 # 必要なもの
-* libncursesw
 * libncurses
 * CMake
 * g++
+## OS X 以外
+* libncursesw
 
 # 使い方
 ビルドしてできた実行ファイルを実行するだけ
