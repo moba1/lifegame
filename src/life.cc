@@ -55,7 +55,7 @@ auto show_version(const char* program_name) -> void {
  */
 auto main(int argc, char* argv[]) -> int {
   int parse_result, height = 20, width = 20, probability = 60;
-  auto stopping = false, finish = false;
+  auto stopping = false, finish = false, error_occured = false;
   const option options[] = {{"height", required_argument, NULL, 'e'},
                             {"width", required_argument, NULL, 'w'},
                             {"help", no_argument, NULL, 'h'},
@@ -90,10 +90,14 @@ auto main(int argc, char* argv[]) -> int {
         show_version(argv[0]);
         return 0;
       case 'p':
-        probability = atoi(optarg);
-        if (probability <= 0) {
+        try {
+          probability = std::stoi(std::string(optarg));
+        } catch (std::exception ex) {
+          error_occured = true;
+        }
+        if (!(0 < probability && probability < 100 && error_occured == false)) {
           std::cerr << argv[0]
-                    << ": `--probability' requires what is graeter than 0"
+                    << ": integer number `p` such that 0 < p < 100"
                     << std::endl;
           return 2;
         }
